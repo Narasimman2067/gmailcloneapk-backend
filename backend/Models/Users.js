@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import  jwt  from 'jsonwebtoken';
+// import  jwt  from 'jsonwebtoken';
 
 const userSchema=new mongoose.Schema({
     name:{
@@ -20,9 +20,9 @@ const userSchema=new mongoose.Schema({
     },
     
 });
- export const generateAuthToken =(id)=>{
-        return jwt.sign(id),process.env.Secretkey
-    }
+//  export const generateAuthToken =(id)=>{
+//         return jwt.sign(id),process.env.Secretkey
+//     }
 export default mongoose.model("User",userSchema);
 
 

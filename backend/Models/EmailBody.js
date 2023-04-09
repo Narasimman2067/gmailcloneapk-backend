@@ -24,7 +24,7 @@ export const EmailBodySchema =new mongoose.Schema(
    
    },
     user:{
-        type:mongoose.Types.ObjectId,
+        type:ObjectId,
         ref:"User",
     },
 
