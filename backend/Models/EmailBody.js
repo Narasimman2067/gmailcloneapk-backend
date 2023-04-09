@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
 
-// const {ObjectId}=mongoose.Schema;
+const {ObjectId}=mongoose.Schema;
 
 
-const EmailBodySchema =new mongoose.Schema(
+export const EmailBodySchema =new mongoose.Schema(
 
 {
     name:{
