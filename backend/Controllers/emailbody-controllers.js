@@ -32,18 +32,17 @@ export const emailBody = async (req, res) => {
 //   if (!token) return res.status(400).json({ message: "Access denied" });
 // };
 
-export const emailbodyPost = async (req, res) => {
+export const emailbodyPost = async(req, res) => {
   try {
     let postdate = new Date().toJSON().slice(0, 10);
     const email = await new EmailBody({
       ...req.body,
       date: postdate,
-      user: req.user._id,
     }).save();
     if (!email) {
       return res.status(400).json({ message: "error posting your content" });
     }
-    res.status(200).json({ message: email });
+    res.status(200).json({ message:"email posted",email });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "internal server error" });

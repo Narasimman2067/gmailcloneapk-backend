@@ -36,4 +36,4 @@ app.get("/", (req, res) => {
 });
 
 
-app.listen(PORT,()=> console.log(`${PORT} server connected successfully`));
+app.listen(PORT,()=>console.log(`${PORT} server connected successfully`));
