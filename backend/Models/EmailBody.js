@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 
-const {ObjectId}=mongoose.Schema;
+// const {ObjectId}=mongoose.Schema;
 
 
 const EmailBodySchema =new mongoose.Schema(
@@ -24,7 +24,7 @@ const EmailBodySchema =new mongoose.Schema(
    
    },
     user:{
-        type:ObjectId,
+        type:mongoose.Types.ObjectId,
         ref:"User",
     },
 
