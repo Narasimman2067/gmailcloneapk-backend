@@ -21,7 +21,7 @@ const EmailBodySchema =new mongoose.Schema(
     },
    date:{
     type:String,
-    required:true,
+   
    },
     user:{
         type:ObjectId,

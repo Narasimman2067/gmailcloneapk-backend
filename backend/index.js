@@ -11,7 +11,7 @@ import emailbodyRouter from "./Routes/EmailBody-Router.js";
 
 const app = express();
 
-// enc configuretion
+// env configuretion
 dotenv.config();
 
 // server Connection
@@ -36,4 +36,4 @@ app.get("/", (req, res) => {
 });
 
 
-app.listen(PORT, () => console.log(`${PORT} server connected successfully`));
+app.listen(PORT,()=> console.log(`${PORT} server connected successfully`));

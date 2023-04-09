@@ -1,6 +1,7 @@
-import jwt from "jsonwebtoken";
-import User from "../Models/Users.js";
+// import jwt from "jsonwebtoken";
+// import User from "../Models/Users.js";
 import EmailBody from "../Models/EmailBody.js";
+
 
 export const emailBody = async (req, res) => {
   try {
@@ -15,21 +16,21 @@ export const emailBody = async (req, res) => {
   }
 };
 
-export const isSignedIn = async (req, res, next) => {
-  let token;
-  if (req.headers) {
-    try {
-      token = req.headers["x-auth-token"];
-      const decode = jwt.verify(token, process.env.SecretKey);
-      console.log(decode);
-      req.user = await User.findById(decode.id).select("-password");
-      next();
-    } catch (error) {
-      return res.status(401).json({ message: "Invalid Authorization" });
-    }
-  }
-  if (!token) return res.status(400).json({ message: "Access denied" });
-};
+// export const isSignedIn = async (req, res, next) => {
+//   let token;
+//   if (req.headers) {
+//     try {
+//       token = req.headers["x-auth-token"];
+//       const decode = jwt.verify(token, process.env.SecretKey);
+//       console.log(decode);
+//       req.user = await User.findById(decode.id).select("-password");
+//       next();
+//     } catch (error) {
+//       return res.status(401).json({ message: "Invalid Authorization" });
+//     }
+//   }
+//   if (!token) return res.status(400).json({ message: "Access denied" });
+// };
 
 export const emailbodyPost = async (req, res) => {
   try {
@@ -53,7 +54,7 @@ export const emailbodyuser = async (req, res) => {
   try {
     const content = await EmailBody.find({ user: req.user._id }).populate(
       "user",
-      "name email"
+      "name","email"
     );
     if (!content) {
       return res.status(400).json({ message: "Error fetching your content" });

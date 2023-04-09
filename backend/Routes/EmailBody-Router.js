@@ -6,7 +6,7 @@ import { emailBody, emailbodyPost, emailbodydelete, emailbodyput, emailbodyuser 
 const emailbodyRouter =express.Router();
 
 emailbodyRouter.get("/alluser",emailBody)
-emailbodyRouter.get("/emialuser",emailbodyuser)
+emailbodyRouter.get("/emailuser",emailbodyuser)
 emailbodyRouter.post("/email",emailbodyPost)
 emailbodyRouter.put("/edit/:id",emailbodyput)
 emailbodyRouter.delete("/:id",emailbodydelete)
