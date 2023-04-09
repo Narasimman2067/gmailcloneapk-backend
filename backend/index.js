@@ -5,7 +5,6 @@ import cors from "cors";
 import userRouter from "./Routes/userRouter.js";
 import  loginRouter  from "./Routes/userRouter-login.js";
 import emailbodyRouter from "./Routes/EmailBody-Router.js";
-import { isSignedIn } from "./Controllers/emailbody-controllers.js";
 
 
 // express server
@@ -29,7 +28,7 @@ app.use(cors());
 // app.use("/api/signup", signUpRouter);
 app.use("/user",loginRouter);
 app.use("/user",userRouter);
-app.use("/user",isSignedIn,emailbodyRouter);
+app.use("/user",emailbodyRouter);
 
 // use the functions
 app.get("/", (req, res) => {
