@@ -19,10 +19,10 @@ export const EmailBodySchema =new mongoose.Schema(
         type:String,
         required:true,
     },
-   date:{
-    type:String,
-   
-   },
+    date: {
+        type: Date,
+        default: Date.now
+        },
     user:{
         type:ObjectId,
         ref:"User",
