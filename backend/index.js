@@ -28,7 +28,7 @@ app.use(cors());
 // app.use("/api/signup", signUpRouter);
 app.use("/user",loginRouter);
 app.use("/user",userRouter)
-app.use("/user/alluser",emailbodyRouter)
+app.use("/user",emailbodyRouter)
 
 // use the functions
 app.get("/", (req, res) => {
