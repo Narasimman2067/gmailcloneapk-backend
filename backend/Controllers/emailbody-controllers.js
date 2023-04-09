@@ -40,7 +40,7 @@ export const emailbodyPost = async(req, res) => {
  
   });
   try {
-  const savedUser = await user.save()
+  const savedUser = await User.save()
   res.json(savedUser);
   } catch(err) {
   console.log(err)
