@@ -48,19 +48,21 @@ export const postEmail= async(req, res) => {
   export const emailPost=async(req, res)=>{
       try {
           // let postdate = new Date().toJSON().slice(0, 10);
-          const content = await new EmailBody(
+          const content = new EmailBody(
               {
                 name : req.body.name,
                 subject : req.body.subject,
                 message : req.body.message,
-                user:req.body.user._id
+                user:req.body.user_id
                   //  date:postdate,
                    }
-                   ).save();
+                   );
+            const savedUser = await content.save()
+
          if(!content){
           return res.status(400).json({message:"Error posting your content"})
          }
-         res.status(200).json({message:content})
+         res.status(200).json({message:savedUser})
       } catch (error) {
           console.log(error)
           res.status(500).json({message:"Internal server error"})
