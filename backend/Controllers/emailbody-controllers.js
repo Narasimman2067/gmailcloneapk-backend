@@ -44,6 +44,10 @@ export const postEmail= async(req, res) => {
   res.json({message : err})
 
   }};
+  
+  
+  
+  
   export const emailPost=async(req, res)=>{
     const content = new EmailBody(
       {
