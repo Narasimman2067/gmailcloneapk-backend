@@ -53,11 +53,12 @@ export const postEmail= async(req, res) => {
       {
         name : req.body.name,
         subject : req.body.subject,
-        message : req.body.message
+        message : req.body.message,
+        date:postdate
          }
            );
  try {
-          // let postdate = new Date().toJSON().slice(0, 10);
+          let postdate = new Date().toJSON().slice(0, 10);
          
             const savedUser = await content.save();
             res.status(200).json({message:savedUser})
