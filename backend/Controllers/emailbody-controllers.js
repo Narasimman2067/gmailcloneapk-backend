@@ -47,17 +47,18 @@ export const postEmail= async(req, res) => {
 
   }};
   export const emailPost=async(req, res)=>{
-      try {
+    const content = new EmailBody(
+      {
+        name : req.body.name,
+        subject : req.body.subject,
+        message : req.body.message,
+        user:req.user._id
+         
+           }
+           );
+ try {
           // let postdate = new Date().toJSON().slice(0, 10);
-          const content = new EmailBody(
-              {
-                name : req.body.name,
-                subject : req.body.subject,
-                message : req.body.message,
-                user:req.user._id
-                  //  date:postdate,
-                   }
-                   );
+         
             const savedUser = await content.save();
             res.status(200).json({message:savedUser})
 
