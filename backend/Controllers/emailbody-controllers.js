@@ -64,8 +64,7 @@ export const postEmail= async(req, res) => {
          if(!content){
           return res.status(400).json({message:"Error posting your content"})
          }
-        
-      } catch (error) {
+        } catch (error) {
           console.log(error)
          }
     }
