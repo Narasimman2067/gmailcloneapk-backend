@@ -35,8 +35,6 @@ export const postEmail= async(req, res) => {
   name : req.body.name,
   subject : req.body.subject,
   message : req.body.message,
-  user:req.ObjectId(_id)
-
   });
   try {
   const savedUser = await user.save()
