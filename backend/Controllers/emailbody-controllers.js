@@ -49,10 +49,14 @@ export const postEmail= async(req, res) => {
       try {
           // let postdate = new Date().toJSON().slice(0, 10);
           const content = await new EmailBody(
-              {...req.body,
+              {
+                name : req.body.name,
+                subject : req.body.subject,
+                message : req.body.message,
+                user:req.body.user._id
                   //  date:postdate,
-                   user: req.user._id}
-                   ).save()
+                   }
+                   ).save();
          if(!content){
           return res.status(400).json({message:"Error posting your content"})
          }
