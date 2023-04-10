@@ -57,16 +57,16 @@ export const postEmail= async(req, res) => {
                   //  date:postdate,
                    }
                    );
-            const savedUser = await content.save()
+            const savedUser = await content.save();
+            res.status(200).json({message:savedUser})
 
          if(!content){
           return res.status(400).json({message:"Error posting your content"})
          }
-         res.status(200).json({message:savedUser})
+        
       } catch (error) {
           console.log(error)
-          res.status(500).json({message:"Internal server error"})
-      }
+         }
     }
 
 // export const emailbodyPost = async (req, res) => {
