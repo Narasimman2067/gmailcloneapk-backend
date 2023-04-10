@@ -63,7 +63,7 @@ export const postEmail= async(req, res) => {
             const savedUser = await content.save();
             res.status(200).json({message:savedUser})
 
-         if(!content){
+         if(content){
           return res.status(400).json({message:"Error posting your content"})
          }
         } catch (error) {
