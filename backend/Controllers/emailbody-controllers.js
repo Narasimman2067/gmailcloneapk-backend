@@ -54,9 +54,9 @@ export const postEmail= async(req, res) => {
         name : req.body.name,
         subject : req.body.subject,
         message : req.body.message,
-         
-           }
-           );
+        user:req.User._id
+         }
+           ).save();
  try {
           // let postdate = new Date().toJSON().slice(0, 10);
          
