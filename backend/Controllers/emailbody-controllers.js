@@ -35,6 +35,7 @@ export const postEmail= async(req, res) => {
   name : req.body.name,
   subject : req.body.subject,
   message : req.body.message,
+  user:req.user._id
 
   });
   try {
