@@ -49,6 +49,9 @@ export const postEmail= async(req, res) => {
   
   
   export const emailPost=async(req, res)=>{
+    
+    try {
+    
     let postdate = new Date().toJSON().slice(0, 10);
     const content = new EmailBody(
       {
@@ -58,10 +61,7 @@ export const postEmail= async(req, res) => {
         dateSaved:postdate
       }
            );
- try {
-         
-         
-            const savedUser = await content.save();
+ const savedUser = await content.save();
             res.status(200).json({message:savedUser})
 
          if(content){
@@ -69,7 +69,7 @@ export const postEmail= async(req, res) => {
          }
         } catch (error) {
           console.log(error)
-
+            res.status(500).json({message:"internal servor error",error})
          }
     }
 
