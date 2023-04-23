@@ -55,7 +55,8 @@ export const postEmail= async(req, res) => {
         name : req.body.name,
         subject : req.body.subject,
         message : req.body.message,
-        dateSaved:postdate
+        dateSaved:postdate,
+        user:User._id
          }
            );
  try {
@@ -72,37 +73,37 @@ export const postEmail= async(req, res) => {
          }
     }
 
-export const emailbodyPost = async (req, res) => {
-  const user = new EmailBody({
-    name: req.body.name,
-    subject: req.body.subject,
-    message: req.body.message,
-  });
-  try {
-    const savedUser = await user.save();
-    res.json(savedUser);
-  } catch (err) {
-    console.log(err);
-    res.json({ message: err });
-  }
-};
-async(req, res)=>{
-  try {
-      let postdate = new Date().toJSON().slice(0, 10);
-      const content = await new EmailBody(
-          {...req.body,
-               date:postdate,
-               user: req.user._id}
-               ).save()
-     if(!content){
-      return res.status(400).json({message:"Error posting your content"})
-     }
-     res.status(200).json({message:content})
-  } catch (error) {
-      console.log(error)
-      res.status(500).json({message:"Internal server error"})
-  }
-}
+// export const emailbodyPost = async (req, res) => {
+//   const user = new EmailBody({
+//     name: req.body.name,
+//     subject: req.body.subject,
+//     message: req.body.message,
+//   });
+//   try {
+//     const savedUser = await user.save();
+//     res.json(savedUser);
+//   } catch (err) {
+//     console.log(err);
+//     res.json({ message: err });
+//   }
+// };
+// async(req, res)=>{
+//   try {
+//       let postdate = new Date().toJSON().slice(0, 10);
+//       const content = await new EmailBody(
+//           {...req.body,
+//                date:postdate,
+//                user: req.user._id}
+//                ).save()
+//      if(!content){
+//       return res.status(400).json({message:"Error posting your content"})
+//      }
+//      res.status(200).json({message:content})
+//   } catch (error) {
+//       console.log(error)
+//       res.status(500).json({message:"Internal server error"})
+//   }
+// }
 
 export const emailbodyuser = async (req, res) => {
   try {
