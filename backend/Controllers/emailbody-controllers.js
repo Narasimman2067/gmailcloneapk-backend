@@ -70,6 +70,7 @@ export const postEmail= async(req, res) => {
          }
         } catch (error) {
           console.log(error)
+          res.status(500).json({message:"internal servor error",error})
          }
     }
 
