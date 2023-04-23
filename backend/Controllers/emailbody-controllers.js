@@ -56,7 +56,7 @@ export const postEmail= async(req, res) => {
         subject : req.body.subject,
         message : req.body.message,
         dateSaved:postdate,
-        user: req.user._id,
+        user: req.User._id,
          }
            );
  try {
