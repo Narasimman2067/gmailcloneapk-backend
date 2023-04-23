@@ -55,9 +55,8 @@ export const postEmail= async(req, res) => {
         name : req.body.name,
         subject : req.body.subject,
         message : req.body.message,
-        dateSaved:postdate,
-        
-         }
+        dateSaved:postdate
+      }
            );
  try {
          
@@ -70,7 +69,7 @@ export const postEmail= async(req, res) => {
          }
         } catch (error) {
           console.log(error)
-          res.status(500).json({message:"internal servor error",error})
+
          }
     }
 

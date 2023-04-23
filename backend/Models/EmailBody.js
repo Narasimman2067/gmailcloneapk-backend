@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import { ObjectId } from "mongoose";
 
 
 const EmailBodySchema = new mongoose.Schema({
@@ -11,7 +11,7 @@ const EmailBodySchema = new mongoose.Schema({
     default: Date.now,
   },
   user: {
-    type: mongoose.Schema.Types.ObjectId,
+    type:ObjectId,
     ref: "User",
   },
 });
