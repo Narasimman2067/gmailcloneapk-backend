@@ -1,9 +1,6 @@
 import mongoose from "mongoose";
 
 
-
-
-
 export function databaseConnection(){
 
 const params ={
@@ -19,3 +16,5 @@ try {
 }
 
 }
+
+
