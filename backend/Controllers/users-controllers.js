@@ -126,7 +126,7 @@ import jwt from 'jsonwebtoken';
 
 
 export const addUser = async (req, res) => {
-    const {name,email, password } = req.body;
+    const {name,email, password} = req.body;
 
     let user;
     try{
@@ -142,7 +142,7 @@ return console.log(error)
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = bcrypt.hashSync(password,salt);
 try {
-    validatePassword = new User({name,email, password: hashedPassword });
+    validatePassword = new User({name,email, password: hashedPassword});
     validatePassword = await validatePassword.save();
     
 } catch (error) {

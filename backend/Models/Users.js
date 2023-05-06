@@ -18,6 +18,10 @@ const userSchema=new mongoose.Schema({
         require:true,
         minLength:8
     },
+    cpassword:{
+        type:String,
+        minLength:8,
+    },
     
 });
 //  export const generateAuthToken =(id)=>{
