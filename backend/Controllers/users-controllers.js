@@ -64,21 +64,21 @@ export const Register = async (req, res, next) => {
   }
 };
 
-export const getAllUsers = async (req, res, next) => {
-  try {
-    const users = await User.find({ _id: { $ne: req.params.id } }).select([
-      "email",
-      "username",
-      "avatarImage",
-      "_id",
-    ]);
-    return res.json({ message: "users find and shown", users });
-  } catch (error) {
-    next(error);
+// export const getAllUsers = async (req, res, next) => {
+//   try {
+//     const users = await User.find({ _id: { $ne: req.params.id } }).select([
+//       "email",
+//       "username",
+//       "avatarImage",
+//       "_id",
+//     ]);
+//     return res.json({ message: "users find and shown", users });
+//   } catch (error) {
+//     next(error);
  
-    res.status(500).json({ message: "internal servor error", error });
-  }
-};
+//     res.status(500).json({ message: "internal servor error", error });
+//   }
+// };
 
 // export const setAvatar = async (req, res, next) => {
 //   try {
