@@ -80,28 +80,28 @@ export const getAllUsers = async (req, res, next) => {
   }
 };
 
-export const setAvatar = async (req, res, next) => {
-  try {
-    const userId = req.params.id;
-    const avatarImage = req.body.image;
-    const userData = await User.findByIdAndUpdate(
-      userId,
-      {
-        isAvatarImageSet: true,
-        avatarImage,
-      },
-      { new: true }
-    );
-    return res.status(200).json({
-      isSet: userData.isAvatarImageSet,
-      image: userData.avatarImage,
-    });
-  } catch (error) {
-    next(error);
+// export const setAvatar = async (req, res, next) => {
+//   try {
+//     const userId = req.params.id;
+//     const avatarImage = req.body.image;
+//     const userData = await User.findByIdAndUpdate(
+//       userId,
+//       {
+//         isAvatarImageSet: true,
+//         avatarImage,
+//       },
+//       { new: true }
+//     );
+//     return res.status(200).json({
+//       isSet: userData.isAvatarImageSet,
+//       image: userData.avatarImage,
+//     });
+//   } catch (error) {
+//     next(error);
  
-    res.status(500).json({ message: "internal servor error", error });
-  }
-};
+//     res.status(500).json({ message: "internal servor error", error });
+//   }
+// };
 
 export const logOut = (req, res, next) => {
   try {
