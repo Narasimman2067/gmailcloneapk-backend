@@ -37,7 +37,7 @@ app.use("/post",contentRouter);
 // use the functions
 
 app.get("/",(req,res)=>{
-  res.send({message:"mongodb and server running successfully"})
+  console.log({message:"mongodb and server running successfully"})
 });
 
 
