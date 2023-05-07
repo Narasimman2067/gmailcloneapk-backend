@@ -1,10 +1,9 @@
-// import jwt from "jsonwebtoken";
-import User from "../Models/Users.js";
+
 import EmailBody from "../Models/EmailBody.js";
 
 export const emailBody = async (req, res) => {
   try {
-    const content = await EmailBody.find().populate("user", "name");
+    const content = await EmailBody.find().populate("user", "To");
     if (!content) {
       return res.status(400).json({ message: "Couldn't fetch your data" });
     }
@@ -15,24 +14,10 @@ export const emailBody = async (req, res) => {
   }
 };
 
-// export const isSignedIn = async (req, res, next) => {
-//   let token;
-//   if (req.headers) {
-//     try {
-//       token = req.headers["x-auth-token"];
-//       const decode = jwt.verify(token, process.env.SecretKey);
-//       console.log(decode);
-//       req.user = await User.findById(decode.id).select("-password");
-//       next();
-//     } catch (error) {
-//       return res.status(401).json({ message: "Invalid Authorization" });
-//     }
-//   }
-//   if (!token) return res.status(400).json({ message: "Access denied" });
-// };
+
 export const postEmail= async(req, res) => {
   const user = new EmailBody ({
-  name : req.body.name,
+  To : req.body.To,
   subject : req.body.subject,
   message : req.body.message,
   });
@@ -52,7 +37,7 @@ export const postEmail= async(req, res) => {
     let postdate = new Date().toJSON().slice(0, 10);
     const content = new EmailBody(
       {
-        name : req.body.name,
+        To : req.body.To,
         subject : req.body.subject,
         message : req.body.message,
         dateSaved:postdate
@@ -73,43 +58,13 @@ export const postEmail= async(req, res) => {
          }
     }
 
-// export const emailbodyPost = async (req, res) => {
-//   const user = new EmailBody({
-//     name: req.body.name,
-//     subject: req.body.subject,
-//     message: req.body.message,
-//   });
-//   try {
-//     const savedUser = await user.save();
-//     res.json(savedUser);
-//   } catch (err) {
-//     console.log(err);
-//     res.json({ message: err });
-//   }
-// };
-// async(req, res)=>{
-//   try {
-//       let postdate = new Date().toJSON().slice(0, 10);
-//       const content = await new EmailBody(
-//           {...req.body,
-//                date:postdate,
-//                user: req.user._id}
-//                ).save()
-//      if(!content){
-//       return res.status(400).json({message:"Error posting your content"})
-//      }
-//      res.status(200).json({message:content})
-//   } catch (error) {
-//       console.log(error)
-//       res.status(500).json({message:"Internal server error"})
-//   }
-// }
+
 
 export const emailbodyuser = async (req, res) => {
   try {
     const content = await EmailBody.find({ user: req.user._id }).populate(
       "user",
-      "name email"
+      "To email"
     );
     if (!content) {
       return res.status(400).json({ message: "Error fetching your content" });

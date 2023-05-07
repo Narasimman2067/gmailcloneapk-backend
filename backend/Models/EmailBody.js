@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
-import { ObjectId } from "mongoose";
+
 
 
 const EmailBodySchema = new mongoose.Schema({
-  name: String,
+  To: String,
   subject: String,
   message: String,
   dateSaved: {
