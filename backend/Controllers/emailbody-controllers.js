@@ -3,7 +3,7 @@ import EmailBody from "../Models/EmailBody.js";
 
 export const emailBody = async (req, res) => {
   try {
-    const content = await EmailBody.find().populate("user", "To");
+    const content = await EmailBody.find().populate("user", "name");
     if (!content) {
       return res.status(400).json({ message: "Couldn't fetch your data" });
     }
@@ -15,9 +15,10 @@ export const emailBody = async (req, res) => {
 };
 
 
+
 export const postEmail= async(req, res) => {
   const user = new EmailBody ({
-  To : req.body.To,
+  name : req.body.name,
   subject : req.body.subject,
   message : req.body.message,
   });
@@ -44,9 +45,7 @@ export const postEmail= async(req, res) => {
       }
            );
  try {
-         
-         
-            const savedUser = await content.save();
+         const savedUser = await content.save();
             res.status(200).json({message:savedUser})
 
          if(content){

@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 
 const EmailBodySchema = new mongoose.Schema({
   To: String,
+  receipients:String,
   subject: String,
   message: String,
   dateSaved: {
