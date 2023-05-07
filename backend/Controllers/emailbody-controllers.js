@@ -18,7 +18,7 @@ export const emailBody = async (req, res) => {
 
 export const postEmail= async(req, res) => {
   const user = new EmailBody ({
-  name : req.body.name,
+  To : req.body.To,
   subject : req.body.subject,
   message : req.body.message,
   });
