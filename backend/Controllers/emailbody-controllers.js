@@ -16,20 +16,20 @@ export const emailBody = async (req, res) => {
 
 
 
-export const postEmail= async(req, res) => {
-  const user = new EmailBody ({
-  To : req.body.To,
-  subject : req.body.subject,
-  message : req.body.message,
-  });
-  try {
-  const savedUser = await user.save()
-  res.json(savedUser);
-  } catch(err) {
-  console.log( err);
-  res.json({message : err})
+// export const postEmail= async(req, res) => {
+//   const user = new EmailBody ({
+//   To : req.body.To,
+//   subject : req.body.subject,
+//   message : req.body.message,
+//   });
+//   try {
+//   const savedUser = await user.save()
+//   res.json(savedUser);
+//   } catch(err) {
+//   console.log( err);
+//   res.json({message : err})
 
-  }};
+//   }};
   
   
   
