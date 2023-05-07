@@ -35,8 +35,9 @@ app.use("/user",emailbodyRouter);
 app.use("/post",contentRouter);
 
 // use the functions
-app.get("/", (req, res) => {
-  res.send("server connected mongoose start running");
+
+app.get("/",(req,res)=>{
+  res.send({message:"mongodb and server running successfully"})
 });
 
 
