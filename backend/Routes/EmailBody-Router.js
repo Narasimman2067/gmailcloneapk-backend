@@ -9,6 +9,7 @@ emailbodyRouter.get("/alluser",emailBody)
 emailbodyRouter.get("/emailuser",emailbodyuser)
 emailbodyRouter.post("/email",postEmail)
 emailbodyRouter.post("/post",emailPost)
+// emailbodyRouter.post("emailpost",emailbodyPost)
 emailbodyRouter.put("/edit/:id",emailbodyput)
 emailbodyRouter.delete("/:id",emailbodydelete)
 
