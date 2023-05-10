@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { ObjectId } from "mongoose";
+import { ObjectId } from "mongodb";
 
 
 const EmailBodySchema = new mongoose.Schema({

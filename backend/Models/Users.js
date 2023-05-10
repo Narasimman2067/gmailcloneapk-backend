@@ -24,9 +24,7 @@ const userSchema=new mongoose.Schema({
     },
     
 });
-//  export const generateAuthToken =(id)=>{
-//         return jwt.sign(id),process.env.Secretkey
-//     }
+
 export default mongoose.model("User",userSchema);
 
 
