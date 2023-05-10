@@ -23,12 +23,13 @@ const PORT = process.env.PORT;
 databaseConnection();
 
 // middlewares
-app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use(express.json({extended:true}));
 app.use(bodyParser.json());
 app.use(cors());
 
 
-// app.use("/api/signup", signUpRouter);
+
 app.use("/user",loginRouter);
 app.use("/user",userRouter);
 app.use("/user",emailbodyRouter);
