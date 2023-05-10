@@ -7,6 +7,7 @@ import  loginRouter  from "./Routes/userRouter-login.js";
 import emailbodyRouter from "./Routes/EmailBody-Router.js";
 import bodyParser from "body-parser";
 import contentRouter from "./Routes/contents-router.js";
+import dotenv from 'dotenv';
 
 
 // express server
