@@ -1,5 +1,5 @@
 // import jwt from "jsonwebtoken";
-import User from "../Models/Users.js";
+
 import EmailBody from "../Models/EmailBody.js";
 
 export const emailBody = async (req, res) => {
